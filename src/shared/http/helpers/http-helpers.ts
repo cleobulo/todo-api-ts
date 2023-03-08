@@ -9,3 +9,8 @@ export const created = () => ({
     message: 'created'
 })
 
+export const serverError = (message: string) => ({
+    status: 500,
+    message: message
+})
+
