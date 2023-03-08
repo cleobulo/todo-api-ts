@@ -1,4 +1,7 @@
 import { todoList } from '../../../../shared/data-source';
+import { created, serverError } from '../../../../shared/http/helpers/http-helpers'
+import { HttpStatus } from '../../../../shared/http/helpers/http-status-helpers'
+
 import { Request, Response } from 'express';
 
 export default class TasksController {
@@ -10,7 +13,7 @@ export default class TasksController {
         
         for (let field of requiredFields) {
             if (!request.body[field]) {
-                return response.status(500).json({ message: `${field} is required.` });
+                return response.status(HttpStatus.serverError).json(serverError(`${field} is required.`));
             }
         }
         
@@ -32,6 +35,6 @@ export default class TasksController {
         /**
          * Return operation status
          */
-        return response.status(201).json(insertTaskData);
+        return response.status(HttpStatus.created).json(created());
     }
 }

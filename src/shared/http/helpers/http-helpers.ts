@@ -1,16 +1,18 @@
+import { HttpStatus } from './http-status-helpers';
+
 export const ok = (data: any) => ({
-    status: 200,
+    status: HttpStatus.ok,
     message: 'ok',
     data: data
 })
 
 export const created = () => ({
-    status: 201,
+    status: HttpStatus.created,
     message: 'created'
 })
 
 export const serverError = (message: string) => ({
-    status: 500,
+    status: HttpStatus.serverError,
     message: message
 })
 
