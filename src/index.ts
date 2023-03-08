@@ -1,30 +1,18 @@
-import TasksController from "./modules/tasks/http/controllers/TasksController";
-
 /**
- * Fake data for test
+ * Server
  */
 
-const fakeRequestDataList = [
-    {
-        body: {
-            title: 'any_title',
-            description: 'any_description'
-        }
-    },
-    {
-        body: {
-            title: 'any_title_other',
-            description: 'any_description_other'
-        }
-    }
-]
+import express from 'express';
+import cors from 'cors';
+import routes from './shared/http/routes';
 
-/**
- * Data handle
- */
+const app = express();
+const port = 3000;
 
-for (let fakeDataItem of fakeRequestDataList) {
-    const tasksController = new TasksController();
-    const { status, message } = tasksController.create(fakeDataItem);
-    console.log(`status: ${status}; message: ${message}`);
-}
+app.use(cors());
+app.use(express.json());
+app.use(routes);
+
+app.listen(port, () => {
+    console.log(`Server running on port: ${port}`);
+})
