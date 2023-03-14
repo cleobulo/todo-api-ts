@@ -29,8 +29,7 @@ export default class TasksController {
         /**
          * Save data on static list
          */
-        const result = tasksRepository.create(insertTaskData);
-        console.log(result);
+        tasksRepository.create(insertTaskData);
 
         /**
          * Return operation status
