@@ -5,7 +5,7 @@ import tasksRepository from '../repository/TasksRepository';
 
 import { Request, Response } from 'express';
 
-export default class TaskCreateController implements ControllerUsecase {
+export class TaskCreateController implements ControllerUsecase {
     public async handle(request: Request, response: Response): Promise<Response> {
         /**
          * Validate data
