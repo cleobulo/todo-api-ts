@@ -1,6 +1,6 @@
-import { todoList } from '../../../../shared/data-source';
 import { created, serverError } from '../../../../shared/http/helpers/http-helpers'
 import { HttpStatus } from '../../../../shared/http/helpers/http-status-helpers'
+import tasksRepository from '../repository/TasksRepository';
 
 import { Request, Response } from 'express';
 
@@ -22,7 +22,6 @@ export default class TasksController {
          */
         const { title, description } = request.body;
         const insertTaskData = {
-            id: todoList.length + 1,
             title: title,
             description: description
         }
@@ -30,7 +29,8 @@ export default class TasksController {
         /**
          * Save data on static list
          */
-        todoList.push(insertTaskData);
+        const result = tasksRepository.create(insertTaskData);
+        console.log(result);
 
         /**
          * Return operation status
