@@ -1,7 +1,6 @@
-import { ICreateTask } from '../../protocols/ICreateTask';
-import { IResponseTask } from '../../protocols/IResponseTask';
-import { ITasksUsecase } from '../../usecases/TasksUsecase';
-import { todoList } from '../../../../shared/data-source';
+import { ICreateTask, IResponseTask } from '../../protocols';
+import { ITasksUsecase } from '../../usecases';
+import { todoList } from '../../../../shared';
 
 export class TasksRepository implements ITasksUsecase {
     create (createTask: ICreateTask): IResponseTask {
