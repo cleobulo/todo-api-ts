@@ -1,6 +1,6 @@
 import { Router } from 'express';
 
-import TasksController from '../controllers/TasksController';
+import TaskCreateController from '../controllers/TaskCreateController';
 
 const tasksRouter = Router();
 
@@ -8,13 +8,13 @@ const tasksRouter = Router();
  * Declare controllers
  */
 
-const tasksController = new TasksController();
+const taskCreateController = new TaskCreateController();
 
 /**
  * Define routers
  */
 
-tasksRouter.post('/', tasksController.create);
+tasksRouter.post('/', taskCreateController.handle);
 
 // export tasksRouter
 export default tasksRouter;
