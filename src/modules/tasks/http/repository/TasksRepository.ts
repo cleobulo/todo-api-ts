@@ -13,7 +13,7 @@ export class TasksRepository implements ITasksUsecase {
     };
 
     list (): IResponseTask[] {
-        const mapTaskItems = (item) => ({ id: todoList.indexOf(item) + 1, title: item.title, description: item.description });
+        const mapTaskItems = (item: any) => ({ id: todoList.indexOf(item) + 1, title: item.title, description: item.description });
         return todoList.map(mapTaskItems);
     }
 }
