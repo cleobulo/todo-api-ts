@@ -11,6 +11,11 @@ export class TasksRepository implements ITasksUsecase {
             description: createTask.description
         }
     };
+
+    list (): IResponseTask[] {
+        const mapTaskItems = (item) => ({ id: todoList.indexOf(item) + 1, title: item.title, description: item.description });
+        return todoList.map(mapTaskItems);
+    }
 }
 
 const tasksRepository = new TasksRepository();
